@@ -1,0 +1,21 @@
+
+stages:
+  preprocess:
+    cmd: python scripts/preprocess.py
+    deps:
+      - data/raw/PetImages
+      - scripts/preprocess.py
+    outs:
+      - data/processed
+
+  train_cnn:
+    cmd: python scripts/train_cnn.py
+    deps:
+      - data/processed
+      - scripts/train_cnn.py
+    outs:
+      - models/cnn_model.pt
+    metrics:
+      - metrics/cnn_metrics.json:
+          cache: false
+

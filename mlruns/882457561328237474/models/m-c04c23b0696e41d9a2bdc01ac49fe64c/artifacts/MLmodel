@@ -1,0 +1,23 @@
+artifact_path: /home/noiclt45353/Workspace/Others/Assign2/mlruns/882457561328237474/models/m-c04c23b0696e41d9a2bdc01ac49fe64c/artifacts
+flavors:
+  python_function:
+    config:
+      device: null
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pytorch
+    pickle_module_name: mlflow.pytorch.pickle_module
+    python_version: 3.10.12
+  pytorch:
+    code: null
+    model_data: data
+    pytorch_version: 2.10.0+cu128
+mlflow_version: 3.8.1
+model_id: m-c04c23b0696e41d9a2bdc01ac49fe64c
+model_size_bytes: 57957030
+model_uuid: m-c04c23b0696e41d9a2bdc01ac49fe64c
+prompts: null
+run_id: 6f8e4d91fb9a499f864f7fdb0f66c232
+utc_time_created: '2026-02-20 16:39:15.671711'
