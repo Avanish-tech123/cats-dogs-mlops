@@ -19,8 +19,13 @@ from app import (
     predict_image,
     transform,
     device,
-    class_names
+    class_names,
+    load_model
 )
+
+
+# Ensure the model and transform are loaded before tests
+load_model()
 
 
 class TestDataPreprocessing:
