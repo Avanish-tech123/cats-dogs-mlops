@@ -1,0 +1,14 @@
+artifact_uri: /home/noiclt45353/Workspace/Others/Assign2/mlruns/882457561328237474/8192d3e0896d43bcbc6d939501d83c5d/artifacts
+end_time: 1771655024634
+entry_point_name: ''
+experiment_id: '882457561328237474'
+lifecycle_stage: active
+run_id: 8192d3e0896d43bcbc6d939501d83c5d
+run_name: CNN_Baseline
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1771654631749
+status: 3
+tags: []
+user_id: noiclt45353

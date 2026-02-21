@@ -1,0 +1,10 @@
+artifact_location: /home/noiclt45353/Workspace/Others/Assign2/mlruns/882457561328237474/models/m-3f1e41f58e684b05a6212c26757a2dd3/artifacts
+creation_timestamp: 1771655022918
+experiment_id: '882457561328237474'
+last_updated_timestamp: 1771655024629
+model_id: m-3f1e41f58e684b05a6212c26757a2dd3
+model_type: null
+name: cnn_model
+source_run_id: 8192d3e0896d43bcbc6d939501d83c5d
+status: 2
+status_message: null
