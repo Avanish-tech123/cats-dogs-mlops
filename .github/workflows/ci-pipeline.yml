@@ -122,10 +122,19 @@ jobs:
         
     - name: Verify Repository Access
       run: |
-        # Test if we can access the repository metadata
-        docker pull hello-world:latest
-        docker tag hello-world:latest ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:test-access
-        echo "Repository appears accessible for pushing"
+        # Test with a small image first
+        echo "Testing Docker Hub access with small image..."
+        docker pull alpine:latest
+        docker tag alpine:latest ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:test-push
+        
+        # Try to push the small test image
+        if docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:test-push; then
+          echo "Successfully pushed test image - Docker Hub access confirmed"
+          docker rmi ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:test-push
+        else
+          echo "Failed to push test image - Docker Hub access issue"
+          exit 1
+        fi
         
     - name: Extract metadata for Docker
       id: meta
@@ -137,6 +146,8 @@ jobs:
           type=sha,prefix=commit-
           
     - name: Build and push Docker image
+      id: docker_push
+      continue-on-error: true
       uses: docker/build-push-action@v5
       with:
         context: .
@@ -145,6 +156,17 @@ jobs:
         labels: ${{ steps.meta.outputs.labels }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
+        
+    - name: Retry with chunked upload (if main push failed)
+      if: steps.docker_push.outcome == 'failure'
+      run: |
+        echo "Main push failed, trying alternative approach..."
+        # Build image locally without pushing
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:latest .
+        
+        # Try pushing with different registry settings
+        export DOCKER_BUILDKIT=0
+        docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:latest
         
     - name: List pushed images
       run: |
