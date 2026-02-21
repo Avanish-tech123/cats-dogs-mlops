@@ -2,9 +2,9 @@ name: CI Pipeline - Build, Test & Deploy
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ master]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 env:
   DOCKER_IMAGE_NAME: cat-dog-classifier
