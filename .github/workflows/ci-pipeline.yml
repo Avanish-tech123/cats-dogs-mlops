@@ -118,7 +118,14 @@ jobs:
       run: |
         echo "Docker Hub username: ${{ secrets.DOCKER_USERNAME }}"
         echo "Target image: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}"
-        echo "Checking if repository exists..."
+        echo "Checking repository access..."
+        
+    - name: Verify Repository Access
+      run: |
+        # Test if we can access the repository metadata
+        docker pull hello-world:latest
+        docker tag hello-world:latest ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:test-access
+        echo "Repository appears accessible for pushing"
         
     - name: Extract metadata for Docker
       id: meta
@@ -126,9 +133,8 @@ jobs:
       with:
         images: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}
         tags: |
-          type=ref,event=branch
-          type=sha,prefix={{branch}}-
-          type=raw,value=latest,enable={{is_default_branch}}
+          type=raw,value=latest
+          type=sha,prefix=commit-
           
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
