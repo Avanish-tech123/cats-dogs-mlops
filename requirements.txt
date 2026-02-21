@@ -16,5 +16,8 @@ pandas==2.0.3
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
 
+# Testing framework
+pytest==7.4.0
+
 # Optional: for enhanced logging and monitoring
 loguru==0.7.2
