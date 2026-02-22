@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cat-dog-classifier
+  labels:
+    app: cat-dog-classifier
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cat-dog-classifier
+  template:
+    metadata:
+      labels:
+        app: cat-dog-classifier
+    spec:
+      containers:
+        - name: cat-dog-classifier
+          image: cat-dog-classifier:v1.1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              memory: "2Gi"
+              cpu: "1"
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 15
+            timeoutSeconds: 5

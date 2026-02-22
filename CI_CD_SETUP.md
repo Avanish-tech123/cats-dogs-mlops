@@ -166,27 +166,7 @@ test:
   script:
     - pip install -r requirements.txt
     - pytest test_app.py -v --cov=app
-```
 
-### Jenkins (Jenkinsfile)
-```groovy
-pipeline {
-    agent any
-    stages {
-        stage('Test') {
-            steps {
-                sh 'pip install -r requirements.txt'
-                sh 'pytest test_app.py -v'
-            }
-        }
-        stage('Build') {
-            steps {
-                sh 'docker build -t cat-dog-classifier .'
-            }
-        }
-    }
-}
-```
 
 ## Best Practices
 
