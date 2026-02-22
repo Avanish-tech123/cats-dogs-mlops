@@ -233,10 +233,10 @@ Detailed Results:
 
 This implementation demonstrates a comprehensive monitoring and logging solution for the Cat-Dog Classifier that includes:
 
-- ✅ **Request/Response Logging** with structured JSON format
-- ✅ **Metrics Collection** for latency, accuracy, and usage tracking  
-- ✅ **Performance Analysis** with synthetic test data generation
-- ✅ **Production-Ready Monitoring** with thread safety and efficiency
-- ✅ **CI/CD Integration** with automated testing and validation
+-  **Request/Response Logging** with structured JSON format
+-  **Metrics Collection** for latency, accuracy, and usage tracking  
+-  **Performance Analysis** with synthetic test data generation
+-  **Production-Ready Monitoring** with thread safety and efficiency
+-  **CI/CD Integration** with automated testing and validation
 
 The monitoring system is designed to be lightweight, scalable, and provides actionable insights for model performance optimization and operational maintenance.

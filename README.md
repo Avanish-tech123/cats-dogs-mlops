@@ -1,47 +1,47 @@
 # Cat vs Dog Classifier - Complete MLOps Pipeline
 
-## 🎯 Project Overview
+## Project Overview
 
 A complete end-to-end MLOps implementation featuring a CNN-based image classifier for cats vs dogs, with comprehensive CI/CD, containerization, Kubernetes deployment, and production monitoring.
 
-## 📋 Project Modules Completed
+## Project Modules Completed
 
-### ✅ M1: Model Development & Experiment Tracking
+### M1: Model Development & Experiment Tracking
 - **CNN Architecture**: Custom PyTorch model with 5 convolutional blocks
 - **Training Pipeline**: Automated training with validation monitoring
 - **MLflow Integration**: Comprehensive experiment tracking and model registry
 - **Performance**: Achieved 85%+ accuracy with robust validation metrics
 - **Artifacts**: Model weights, training logs, performance reports
 
-### ✅ M2: Test-Driven Development & CI/CD
+### M2: Test-Driven Development & CI/CD
 - **Unit Testing**: Comprehensive pytest suite with 95%+ coverage
 - **API Testing**: FastAPI endpoint validation with test fixtures
 - **GitHub Actions**: Automated CI pipeline with testing and deployment
 - **Docker Integration**: Multi-stage builds with optimized images
 - **Code Quality**: Automated testing on pull requests and merges
 
-### ✅ M3: Containerization & Docker Registry
+### M3: Containerization & Docker Registry
 - **Docker Implementation**: Production-ready containerized application
 - **Multi-stage Build**: Optimized image size and security
 - **Docker Hub Integration**: Automated image publishing with versioning
 - **Health Checks**: Built-in container health monitoring
 - **Security**: Non-root user, minimal attack surface
 
-### ✅ M4: Kubernetes Deployment & Orchestration
+### M4: Kubernetes Deployment & Orchestration
 - **Local Kubernetes**: Minikube deployment with production patterns
 - **High Availability**: Multi-replica deployment with rolling updates
 - **Service Discovery**: NodePort service with external accessibility
 - **Resource Management**: CPU/memory limits and requests
 - **Health Monitoring**: Liveness and readiness probes
 
-### ✅ M5: Monitoring, Logging & Performance Tracking
+### M5: Monitoring, Logging & Performance Tracking
 - **Structured Logging**: JSON-formatted request/response logging
 - **Metrics Collection**: Request count, latency, and accuracy tracking
 - **Performance Analysis**: Model confidence and processing time monitoring
 - **Monitoring Endpoints**: `/metrics` and `/performance` API endpoints
 - **Test Framework**: Automated performance validation with synthetic data
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 graph TB
@@ -56,7 +56,7 @@ graph TB
     G --> J[Monitoring & Logging]
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Docker and Docker Hub account
@@ -144,7 +144,7 @@ curl -X POST "http://localhost:8000/predict" \
 curl -X GET "http://localhost:8000/metrics"
 ```
 
-## 🔍 Monitoring & Observability
+## Monitoring & Observability
 
 ### Logging
 - **Structured JSON logs** for all requests and responses
@@ -172,7 +172,7 @@ curl -X GET "http://localhost:8000/metrics"
 }
 ```
 
-## 🧪 Testing Strategy
+## Testing Strategy
 
 ### Unit Tests
 ```bash
@@ -198,7 +198,7 @@ python3 test_performance.py http://localhost:8000
 - **Deployment Verification**: Smoke tests run post-deployment
 - **Performance Benchmarks**: Automated performance regression detection
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 ```bash
@@ -216,7 +216,7 @@ MODEL_PATH=models/cnn_best.pt
 - **Health Probes**: 30s liveness, 15s readiness intervals
 - **Service**: NodePort for local access, easily configurable for LoadBalancer
 
-## 📈 Performance Benchmarks
+## Performance Benchmarks
 
 ### Model Performance
 - **Accuracy**: 85-90% on test dataset
@@ -230,7 +230,7 @@ MODEL_PATH=models/cnn_best.pt
 - **Rolling Update**: Zero-downtime deployments
 - **Resource Efficiency**: Optimized Docker image (~9GB with PyTorch)
 
-## 🛡️ Security & Best Practices
+## Security & Best Practices
 
 ### Container Security
 - **Non-root user**: Application runs as `appuser` (UID 1000)
@@ -250,7 +250,7 @@ MODEL_PATH=models/cnn_best.pt
 - **Monitoring**: Security event logging and alerting
 - **CI/CD**: Automated security testing in pipeline
 
-## 🔄 CI/CD Pipeline
+## CI/CD Pipeline
 
 ### Workflow Stages
 1. **Code Quality**: Linting, formatting, security scans
@@ -271,7 +271,7 @@ MODEL_PATH=models/cnn_best.pt
 - Smoke testing and performance validation
 ```
 
-## 📚 Documentation
+## Documentation
 
 ### Code Documentation
 - **API Documentation**: Auto-generated Swagger/OpenAPI docs at `/docs`
@@ -285,9 +285,9 @@ MODEL_PATH=models/cnn_best.pt
 - **Troubleshooting**: Common issues and resolution steps
 - **Performance Tuning**: Optimization guidelines and benchmarks
 
-## 🚀 Production Readiness Checklist
+## Production Readiness Checklist
 
-### ✅ Completed
+### Completed
 - [x] Containerized application with health checks
 - [x] Kubernetes deployment with high availability
 - [x] Comprehensive monitoring and logging
@@ -296,7 +296,7 @@ MODEL_PATH=models/cnn_best.pt
 - [x] Security hardening and best practices
 - [x] Documentation and operational guides
 
-### 🔄 Future Enhancements
+### Future Enhancements
 - [ ] Prometheus/Grafana metrics integration
 - [ ] Horizontal pod autoscaling (HPA)
 - [ ] Istio service mesh for advanced routing
@@ -304,7 +304,7 @@ MODEL_PATH=models/cnn_best.pt
 - [ ] A/B testing framework for model versions
 - [ ] Advanced security scanning and policies
 
-## 🤝 Contributing
+## Contributing
 
 ### Development Workflow
 1. Fork the repository
@@ -319,7 +319,7 @@ MODEL_PATH=models/cnn_best.pt
 - **Documentation**: Update docs for all changes
 - **Security**: Follow security best practices
 
-## 📄 License & Acknowledgments
+## License & Acknowledgments
 
 ### Project Structure
 ```
@@ -343,7 +343,7 @@ MODEL_PATH=models/cnn_best.pt
 └── README.md                       # This comprehensive guide
 ```
 
-**Built with** ❤️ using PyTorch, FastAPI, Docker, Kubernetes, and modern MLOps practices.
+**Built with** love using PyTorch, FastAPI, Docker, Kubernetes, and modern MLOps practices.
 
 ---
 
