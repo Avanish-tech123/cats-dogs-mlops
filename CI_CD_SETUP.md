@@ -186,4 +186,3 @@ test:
 4. Monitor the pipeline in the Actions tab
 5. Once successful, verify Docker image on Docker Hub
 
-Test WorkFlow
